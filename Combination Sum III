@@ -1,0 +1,32 @@
+class Solution {
+    public List<List<Integer>> combinationSum3(int k, int n) {
+      
+        List<List<Integer>> l=new ArrayList<>();
+        List<Integer> la=new ArrayList<>();
+        boolean[] arr=new boolean[9];
+     
+        par(1,n,la,l,k);
+        return l;
+    }
+    
+    private void par(int x,int sum,List<Integer> la,List<List<Integer>> l,int k) {
+        if (sum==0 && k==0) {
+                       
+          
+            l.add(new ArrayList<>(la));
+            return;
+        }
+        for (int i = x; i <=9 ;i++)
+        {   
+           
+            
+           
+                        la.add(i);
+                        par(i+1,sum-i,la,l,k-1);
+                        la.remove(la.size()-1);
+                   
+           
+        }
+    }
+    
+}
